@@ -151,10 +151,21 @@ class TVCardServices extends LitElement {
     sendKey(key) {
         let entity_id = this._config.entity;
 
-        this._hass.callService("remote", "send_command", {
+        /*this._hass.callService("remote", "send_command", {
             target: { entity_id: entity_id },
             data: { command: key }
-        });
+        });*/
+        
+        this._hass.callService("remote", "send_command", {
+              "target": {
+                "entity_id": entity_id
+              },
+              "data": {
+                "command": [
+                  key
+                ]
+              }
+            });
     }
 
     changeSource(source) {
