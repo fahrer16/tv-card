@@ -157,14 +157,8 @@ class TVCardServices extends LitElement {
         });*/
         
         this._hass.callService("remote", "send_command", {
-              "target": {
-                "entity_id": entity_id
-              },
-              "data": {
-                "command": [
-                  key
-                ]
-              }
+               "entity_id": entity_id,
+               "command": [key]
             });
     }
 
